@@ -28,21 +28,17 @@ public class ClientService {
         this.orderCsRepository = orderCsRepository;
     }
 
-    /**
-     * Метод создание клиента. юид присваивается автматически
-     * @param fullName обязательное поле
-     * @param primaryPhone обязательное поле
-     * @param secondaryPhone необязательное поле
-     * @param email необязательное поле
-     * @param messenger необязательное поле
-     * @param commentForClient необязательное поле
-     * @return id созданного клинета
-     */
-    public Client createClient( String fullName, String primaryPhone, String secondaryPhone, String email,
-                             Messanger messenger, String commentForClient) {
-        return clientRepository.save(new Client(fullName, primaryPhone, secondaryPhone,email,messenger,
-                commentForClient, OffsetDateTime.now()));
-    }
+//    /**
+//     * Метод создание клиента. юид присваивается автматически
+//     * @param fullName обязательное поле
+//     * @param primaryPhone обязательное поле
+//     * @param secondaryPhone необязательное поле
+//     * @param email необязательное поле
+//     * @param messenger необязательное поле
+//     * @param commentForClient необязательное поле
+//     * @return id созданного клинета
+//     */
+
 
     public Client findClientById(Long id){
       return   clientRepository.findById(id).orElseThrow(() ->new ClientNotFoundExceptions("Клиент с id = " + id + " ненайден"));
