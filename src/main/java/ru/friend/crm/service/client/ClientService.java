@@ -38,10 +38,10 @@ public class ClientService {
      * @param commentForClient необязательное поле
      * @return id созданного клинета
      */
-    public Long createClient( String fullName, String primaryPhone, String secondaryPhone, String email,
+    public Client createClient( String fullName, String primaryPhone, String secondaryPhone, String email,
                              Messanger messenger, String commentForClient) {
         return clientRepository.save(new Client(fullName, primaryPhone, secondaryPhone,email,messenger,
-                commentForClient, OffsetDateTime.now())).getClientId();
+                commentForClient, OffsetDateTime.now()));
     }
 
     public Client findClientById(Long id){
