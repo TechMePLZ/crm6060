@@ -22,10 +22,10 @@ public class ResponseClientDto {
     public ResponseClientDto(Client client) {
         this.fullName = client.getFullName();
         this.primaryPhone = client.getPrimaryPhone();
-        if (client.getSecondaryPhone() != null) this.secondaryPhone = client.getSecondaryPhone();
-        if (client.getEmail() != null) email = client.getEmail();
+        this.secondaryPhone = client.getSecondaryPhone();
+        this.email = client.getEmail();
         if (client.getMessenger() != null) this.messenger = client.getMessenger().toString();
-        if (client.getCommentForClient() != null)  this.commentForClient = client.getCommentForClient();
+        this.commentForClient = client.getCommentForClient();
         this.createdAt = client.getCreatedAt();
     }
 }
