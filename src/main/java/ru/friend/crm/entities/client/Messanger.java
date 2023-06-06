@@ -1,4 +1,4 @@
-package ru.friend.crm.entities;
+package ru.friend.crm.entities.client;
 
 public enum Messanger {
 

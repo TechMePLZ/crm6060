@@ -3,6 +3,8 @@ package ru.friend.crm.entities.order;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.lang.Nullable;
 import ru.friend.crm.entities.client.Client;
 
 import javax.persistence.*;
@@ -12,7 +14,7 @@ import java.time.OffsetDateTime;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Order {
+public class OrderCs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,12 +31,22 @@ public class Order {
     @JoinColumn(name = "clientId")
     private Client client;
 
+
     private boolean isReady;
 
     private OffsetDateTime createdAt;
 
+    @Nullable
     private OffsetDateTime closedAt;
 
-   private boolean isNotified;
+    @Column(columnDefinition = "boolean default false")
+    private boolean isNotified;
 
+    public OrderCs(Vendor vendor, String model, String bodyOfRepair, Client client, OffsetDateTime createdAt) {
+        this.vendor = vendor;
+        this.model = model;
+        this.bodyOfRepair = bodyOfRepair;
+        this.client = client;
+        this.createdAt = createdAt;
+    }
 }
