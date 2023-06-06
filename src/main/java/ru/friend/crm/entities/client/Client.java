@@ -1,27 +1,22 @@
-package ru.friend.crm.entities.client;
+package ru.friend.crm.entities;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.lang.Nullable;
-import ru.friend.crm.entities.order.OrderCs;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Data
-@NoArgsConstructor
-@Setter
-@Getter
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long clientId;
     @NotNull
     private String fullName;
@@ -34,15 +29,11 @@ public class Client {
     @Nullable
     private String email;
     @Nullable
-    @Enumerated(EnumType.STRING)
     private Messanger messenger;
     @Nullable
     private String commentForClient;
 
     private OffsetDateTime createdAt;
-
-    @OneToMany( mappedBy = "client")
-    private List<OrderCs> listOrders;
 
 
     public Client(String fullName, String primaryPhone, @Nullable String secondaryPhone,
