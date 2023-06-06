@@ -28,16 +28,6 @@ public class ClientService {
         this.orderCsRepository = orderCsRepository;
     }
 
-//    /**
-//     * Метод создание клиента. юид присваивается автматически
-//     * @param fullName обязательное поле
-//     * @param primaryPhone обязательное поле
-//     * @param secondaryPhone необязательное поле
-//     * @param email необязательное поле
-//     * @param messenger необязательное поле
-//     * @param commentForClient необязательное поле
-//     * @return id созданного клинета
-//     */
 
 
     public Client findClientById(Long id){
